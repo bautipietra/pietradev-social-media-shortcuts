@@ -1,0 +1,413 @@
+/* Basic styles */
+:root {
+  --dark-color: #212529;
+  --light-color: #3f474f;
+}
+
+html { /* 1rem = 10 px */
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  position: absolute;
+  font-weight: 400;
+  transform: translate(0, 1px);
+}
+
+@media screen and (max-width: 600px) {
+  p {
+    font-size: 1.4rem;
+  }
+}
+
+/* Content */
+body #main {
+  max-width: 800px;
+  width: 90%;
+  margin: auto;
+  top: 50%;
+  transform: translate(0, -50%);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+body #main::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: white;
+  opacity: 40%;
+  z-index: -1;
+}
+@media screen and (max-width: 800px) {
+  body #main {
+    top: 0;
+    transform: translate(0, 0);
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+body #main #title {
+  font-size: 2rem;
+  transform: translate(0, -50%);
+}
+@media screen and (max-width: 600px) {
+  body #main #title {
+    font-size: 1.6rem;
+  }
+}
+body #main .content {
+  display: flex;
+  margin: auto;
+  flex-flow: column;
+}
+body #main .content .container__pietraDev {
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+body #main .content .container__pietraDev .container__pietraDev--image {
+  background-color: var(--dark-color);
+  -webkit-clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+          clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+  overflow: hidden;
+  position: relative;
+}
+body #main .content .container__pietraDev .container__pietraDev--image .container__pietraDev--image__lengua {
+  height: 0px;
+  width: 20px;
+  background-color: red;
+  -webkit-clip-path: polygon(15% 70%, 0 70%, 0 0, 100% 0, 100% 70%, 85% 70%, 85% 85%, 70% 85%, 70% 100%, 30% 100%, 30% 85%, 15% 85%);
+          clip-path: polygon(15% 70%, 0 70%, 0 0, 100% 0, 100% 70%, 85% 70%, 85% 85%, 70% 85%, 70% 100%, 30% 100%, 30% 85%, 15% 85%);
+  position: absolute;
+  top: 64%;
+  left: 60%;
+  z-index: 1;
+  opacity: 100%;
+  transition-delay: 0;
+  transform: rotate(30deg);
+}
+body #main .content .container__pietraDev .container__pietraDev--image img {
+  transition: 0.5s;
+}
+body #main .content .container__pietraDev .container__pietraDev--image:hover > img {
+  transform: scale(1.3) rotate(30deg);
+}
+body #main .content .container__pietraDev .container__pietraDev--image:hover > .container__pietraDev--image__lengua {
+  height: 20px;
+  transition: 0.2s;
+  transition-delay: 0.5s;
+}
+body #main .content .container__pietraDev p {
+  width: 50%;
+  min-width: 280px;
+}
+@media screen and (max-width: 700px) {
+  body #main .content .container__pietraDev p {
+    text-align: center;
+    width: 90%;
+  }
+}
+body #main .content .container__links {
+  margin-top: 50px;
+  gap: 20px;
+  display: flex;
+  flex-flow: column;
+}
+body #main .content .container__links a {
+  text-decoration: none;
+}
+body #main .content .container__links a .link {
+  display: flex;
+  flex-flow: row;
+  justify-items: start;
+  padding: 10px;
+  transition: 0.2s;
+}
+body #main .content .container__links a .link h6 {
+  transition: 0.2s;
+}
+body #main .content .container__links a .link:hover {
+  background-color: var(--light-color);
+}
+body #main .content .container__links a .link:hover h6 {
+  background-color: var(--light-color);
+}
+
+/* Background Effect */
+.background .backgroundEffect {
+  background-color: var(--dark-color);
+  -webkit-clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+          clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  -webkit-animation: backgroundEffect ease-in infinite 4s;
+          animation: backgroundEffect ease-in infinite 4s;
+  left: 5%;
+  z-index: -10;
+  opacity: 0;
+}
+@media screen and (max-width: 700px) {
+  .background .backgroundEffect {
+    display: none;
+  }
+}
+.background :nth-child(1) {
+  left: 0;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+.background :nth-child(2) {
+  left: 18%;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(2) {
+    display: none;
+  }
+}
+.background :nth-child(3) {
+  left: 32%;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+  -webkit-animation-duration: 3.4s;
+          animation-duration: 3.4s;
+}
+.background :nth-child(4) {
+  left: 42%;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(4) {
+    display: none;
+  }
+}
+.background :nth-child(5) {
+  left: 54%;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+  -webkit-animation-duration: 2.9s;
+          animation-duration: 2.9s;
+}
+.background :nth-child(6) {
+  left: 70%;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+  -webkit-animation-duration: 2.5s;
+          animation-duration: 2.5s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(6) {
+    display: none;
+  }
+}
+.background :nth-child(7) {
+  left: 84%;
+  -webkit-animation-delay: 1.6;
+          animation-delay: 1.6;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+.background :nth-child(8) {
+  left: 0%;
+  -webkit-animation-delay: 2.4s;
+          animation-delay: 2.4s;
+  -webkit-animation-duration: 3.4s;
+          animation-duration: 3.4s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(8) {
+    display: none;
+  }
+}
+.background :nth-child(9) {
+  left: 16%;
+  -webkit-animation-delay: 3.6s;
+          animation-delay: 3.6s;
+  -webkit-animation-duration: 2.4s;
+          animation-duration: 2.4s;
+}
+.background :nth-child(10) {
+  left: 30%;
+  -webkit-animation-delay: 2.6s;
+          animation-delay: 2.6s;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(10) {
+    display: none;
+  }
+}
+.background :nth-child(11) {
+  left: 46%;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-animation-duration: 3.8s;
+          animation-duration: 3.8s;
+}
+.background :nth-child(12) {
+  left: 58%;
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+  -webkit-animation-duration: 2.6s;
+          animation-duration: 2.6s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(12) {
+    display: none;
+  }
+}
+.background :nth-child(13) {
+  left: 68%;
+  -webkit-animation-delay: 2.4s;
+          animation-delay: 2.4s;
+  -webkit-animation-duration: 3.2s;
+          animation-duration: 3.2s;
+}
+.background :nth-child(14) {
+  left: 5%;
+  -webkit-animation-delay: 3.2s;
+          animation-delay: 3.2s;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(14) {
+    display: none;
+  }
+}
+.background :nth-child(15) {
+  left: 2%;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-duration: 2.7s;
+          animation-duration: 2.7s;
+}
+.background :nth-child(16) {
+  left: 3%;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(16) {
+    display: none;
+  }
+}
+.background :nth-child(17) {
+  left: 75%;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+}
+.background :nth-child(18) {
+  left: 93%;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-animation-duration: 3.2s;
+          animation-duration: 3.2s;
+}
+@media screen and (max-width: 1200px) {
+  .background :nth-child(18) {
+    display: none;
+  }
+}
+.background :nth-child(19) {
+  left: 95%;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+  -webkit-animation-duration: 2.5s;
+          animation-duration: 2.5s;
+}
+.background :nth-child(20) {
+  left: 83%;
+  -webkit-animation-delay: 3.4s;
+          animation-delay: 3.4s;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+@-webkit-keyframes backgroundEffect {
+  0% {
+    top: 100%;
+    opacity: 0;
+    transform: rotate(0);
+  }
+  20% {
+    opacity: 20%;
+  }
+  40% {
+    opacity: 40%;
+    transform: rotate(180deg) scale(1);
+  }
+  60% {
+    opacity: 100%;
+    transform: rotate(240deg) scale(1);
+  }
+  100% {
+    top: -10%;
+    transform: rotate(360deg) scale(0.7);
+  }
+}
+
+@keyframes backgroundEffect {
+  0% {
+    top: 100%;
+    opacity: 0;
+    transform: rotate(0);
+  }
+  20% {
+    opacity: 20%;
+  }
+  40% {
+    opacity: 40%;
+    transform: rotate(180deg) scale(1);
+  }
+  60% {
+    opacity: 100%;
+    transform: rotate(240deg) scale(1);
+  }
+  100% {
+    top: -10%;
+    transform: rotate(360deg) scale(0.7);
+  }
+}/*# sourceMappingURL=style.css.map */
