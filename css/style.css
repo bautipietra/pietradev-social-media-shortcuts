@@ -391,7 +391,7 @@ body #main .content .container__links a .link:hover h6 {
 
 @keyframes backgroundEffect {
   0% {
-    top: 100%;
+    top: calc(100% - 3.5rem);
     opacity: 0;
     transform: rotate(0);
   }
